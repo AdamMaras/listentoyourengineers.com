@@ -1,0 +1,21 @@
+html {
+    background-color: #f7f7f7;
+    color: #3f3f3f;
+    font-family: Bitter, Garamond, "Times New Roman", serif;
+    font-size: 11pt;
+}
+
+p, ol {
+    margin: 1em auto;
+    max-width: 768px;
+}
+
+p {
+    line-height: 1.4em;
+    text-indent: 2em;
+}
+
+ol {
+    box-sizing: border-box;
+    padding: 0px 4em;
+}
