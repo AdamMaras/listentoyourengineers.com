@@ -1,21 +1,56 @@
 html {
-    background-color: #f7f7f7;
+    background-color: #fff;
     color: #3f3f3f;
     font-family: Bitter, Garamond, "Times New Roman", serif;
     font-size: 11pt;
 }
 
-p, ol {
-    margin: 1em auto;
+html body {
+    margin: 0;
+    padding: 0;
+}
+
+/*html body > :first-child {
+    margin-top: 4em;
+}*/
+
+h1, hr, ol, p {
+    padding: 0;
     max-width: 768px;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 2em auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+hr {
+    background-color: #cfcfcf;
+    border: none;
+    height: 0.25em;
+    margin: 2em auto;
 }
 
 p {
     line-height: 1.4em;
+    margin: 1em auto;
     text-indent: 2em;
 }
 
+/*p.foreword {
+    color: #7f7f7f;
+    font-style: italic;
+}*/
+
 ol {
     box-sizing: border-box;
-    padding: 0px 4em;
+    margin: 2em auto;
+    padding: 0 4em;
+}
+
+li {
+    margin: 1em auto;
 }
