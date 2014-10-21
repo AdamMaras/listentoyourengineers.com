@@ -19,6 +19,10 @@ h1, hr, ol, p {
     max-width: 768px;
 }
 
+a, a:visited {
+    color: #44c;
+}
+
 h1 {
     font-size: 2.5em;
     font-weight: bold;
