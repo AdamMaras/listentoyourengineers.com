@@ -39,9 +39,57 @@
             <p>(That, by the way, is why I left contracting and will never go back. The way contractors operate, as I will explain below, is very much against my code of ethics.)</p>
             <p>Imagine, for a moment, that you have hired a contract vendor for a year-long, five million dollar project.</p>
             <p>If they finish your project in a year, it costs you five million dollars, and it's built correctly, I will eat my shoe. (Afterwards, I will send you my r&eacute;sum&eacute;, because I want to be a part of this utopia you've discovered. I'm still not convinced it exists.)</p>
-            <p>You may have heard of The Project Management Triangle: it's often expressed as the phrase "good, cheap, fast; pick two." Guess what? When you hire contractors to build your project, you get to pick none of those things. The project won't be cheap, because contractors are, by nature, more expensive than in-house developers. The project won't be fast, because there is an insane amount of overhead in actually explaining what you want the contractors to build, as well as validating the results of the process. And, of course, the project won't be good.</p>
-            <p>I want to interrupt this line of though to remind you of the sentence that opened this note, but I want you to pay close attention to the emphasized word.</p>
-            <p>Listen to YOUR engineers.</p>
+            
+            <form id="calculator">
+                <p>In order to further illustrate the <em>complex mathematics</em> and <em>financial dynamics</em> behind project estimates, I've built a very handy calculator to help you make sense of how these things tend to work.</p>
+
+                <div id="calculator-controls">
+
+                    <div>
+                        <label for="calculator-units">Unit of time:</label>
+                        <select id="calculator-units">
+                            <option>Minutes</option>
+                            <option>Hours</option>
+                            <option selected="selected">Days</option>
+                            <option>Weeks</option>
+                            <option>Months</option>
+                            <option>Years</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="calculator-engineer-hours">Time estimated by your engineers:</label>
+                        <input id="calculator-engineer-hours" type="number" />
+                        <label id="calculator-engineer-hours-unit">days</label>
+                    </div>
+
+                    <div>
+                        <label for="calculator-contractor-hours">Time estimated by your contractors:</label>
+                        <input id="calculator-contractor-hours" type="number" />
+                        <label id="calculator-contractor-hours-unit">days</label>
+                    </div>
+
+                    <input disabled="disabled" id="calculator-calculate" type="button" value="Calculate" />
+
+                    <div>
+                        <label for="calculator-actual-hours">Time the project will take:</label>
+                        <input id="calculator-actual-hours" readonly="readonly" type="number" />
+                        <label id="calculator-actual-hours-unit">days</label>
+                    </div>
+                    
+                    <div>
+                        <label for="calculator-paid-hours">Time you'll be paying the contractors for:</label>
+                        <input id="calculator-paid-hours" readonly="readonly" type="number" />
+                        <label id="calculator-paid-hours-unit">days</label>
+                    </div>
+                </div>
+
+                <p class="footnote">I take no responsibility for the actions of this calculator, or the actions of anybody who bases complex management decisions upon its results. It is solely intended as a reference implementation of something that's so damn stupid it shouldn't have to be explained in the first place.</p>
+            </form>
+
+            <p>You may have heard of The Project Management Triangle: it's often expressed as the phrase "good, cheap, fast; pick two." Guess what? When you hire contractors to build your project, you get to pick none of those things. The project won't be cheap, because contractors are, by nature, more expensive than in-house developers. The project won't be fast, because there is an insane amount of overhead in actually explaining what you want the contractors to build, as well as validating the results of the process. And, of course, the project won't be good, because contractors are trained to do just enough to meet the requirements before moving on to the next thing.</p>
+            <p>I want to interrupt this line of thought to remind you of the title of this note, but I want you to pay close attention to the emphasized word.</p>
+            <p class="important">Listen to <em>your</em> engineers.</p>
             <p>Why? Because, at the end of the day, contractors are not stakeholders in your project. They are not your end users, they will not be maintaining the project long-term, and (most importantly) their employment does not find any risk if they choose to deliver a solution that's held together by duct tape and chewing gum. Their job is to pump out a project that vaguely resembles the requirements, whittle it down to something a little better when the client sends their negative feedback, and then cut bait once they've delivered.</p>
             <p>If you don't know what the phrase "technical debt" means, go look it up now. Then, understand that bring in a contracted team to build a project in this way is the fastest way to incur technical debt known to man, short of hiring a team of high school students instead. And guess who has to deal with the technical debt that the contractors bring?</p>
             <p>First, your engineers.</p>
@@ -49,7 +97,7 @@
             <p>Second, your company itself.</p>
             <p>Ever have a project that has to be rebuilt every three years because, for one reason or another, it starts failing to perform it's task? That's because of technical debt. When your engineers are falling on their knees and begging you for more support and maintenance employees, that's because of technical debt. When your engineers start fleeing the company in droves because the project to which they're assigned is "unmaintainable" and "a nightmare to work on," that is because of technical debt. But guess what: there is a way to avoid almost all potential technical debt!
             <p>You'll never guess what it is:</p>
-            <p><strong>LISTEN TO YOUR ENGINEERS.</strong></p>
+            <p class="important">Listen to your engineers.</p>
             <p>When they tell you how long a project is going to take, what they're really telling you is how long it'll take for the project to be built correctly. When they tell you what technologies to use for the project, what they're really telling you is which technologies make the most sense for the project, and what technologies will support it long-term. (They, unlike contracting firms, are not just listing off some technologies that they're "certified" in or get paid to push on their clients.) When an engineer tells you that they need more resources, what they're really telling you is that they give enough of a damn about your project to ask for what's necessary to complete and deliver it properly. They are your true stakeholders, because they take as much pride in truly good work as anybody else in your organization possibly could. Engineers are not cogs in a machine that should be replaced when they become squeaky; they are, when treated correctly, some of the best assets a company can have when working with technology. Their ideas could move your company into the top position in its market, or develop something completely new that nobody has though of before. But they can't do that if they're imposed with unrealistic restrictions or The Management threatens to outsource their projects to contractors.</p>
             <p>Remember that the next time you hear some suit and tie telling an engineer that something "shouldn't be that hard."</p>
         </article>
