@@ -1,11 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1" />
+
         <title>Listen to your engineers.</title>
         
-        <link href="http://fonts.googleapis.com/css?family=Bitter:400.400italic,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Bitter:400.400italic,700" rel="stylesheet" type="text/css" />
         <link href="styles/main.css" rel="stylesheet" type="text/css" />
+
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+        <script src="scripts/calculator.js" type="text/javascript"></script>
     </head>
     <body>
         <article>
@@ -31,7 +36,7 @@
             <ol>
                 <li>The Management has literally no idea what work is necessary to implement the project or how that work is done. (In many fields, it's necessary for The Management to have a working knowledge of the work they're Managing. Engineering is, apparently, not one of those fields.)</li>
                 <li>The Contractors have bid the project to fit exactly within the budget and timeline The Management is demanding. (This, like The Management's deadline decision behavior, is also not rooted in reality. More on this later.)</li>
-                <li>(Unfortunately, this one seems to be our fault.) The engineers have simply given up on the idea that anybody above their pay grade even fathoms taking their opinion of the project seriously, and thusly agree to The Management's demands knowing full well that the project is destined to fail.</li>
+                <li>(Unfortunately, this one seems to be our fault.) The engineers have simply given up on the idea that anybody above their pay grade even fathoms taking their opinion of the project seriously, and thusly agree to The Management's demands knowing full well that the project is <a href="http://en.wikipedia.org/wiki/Death_march_(project_management)" target="_blank">destined to fail</a>.</li>
             </ol>
             <p>The first point, unfortunately, has become a fact of life. My least favorite phrase that comes from The Management during any sort of meeting is "that shouldn't be hard to do." It takes every fiber of my being not to stand up and scream "YOU HAVE NO IDEA HOW HARD THAT IS" or, worse, tell them "if it isn't that hard, then you can do it." Unfortunately, comments like that tend to end in job termination. (And I rather enjoy having a paycheck.)</p>
             <p>The third point is an unfortunate one, because it shows that the skilled practitioners of the engineering trades often feel hopeless when faced with The Management's view being imposed upon their work. This observation makes sense, though, when considering that The Management often view engineers as replaceable resources that can simply be "swapped out" when they start to push back on unrealistic expectations. This leads me into the second point from above, which is the most infuriating of them all.</p>
@@ -44,7 +49,6 @@
                 <p>In order to further illustrate the <em>complex mathematics</em> and <em>financial dynamics</em> behind project estimates, I've built a very handy calculator to help you make sense of how these things tend to work.</p>
 
                 <div id="calculator-controls">
-
                     <div>
                         <label for="calculator-units">Unit of time:</label>
                         <select id="calculator-units">
@@ -59,14 +63,14 @@
 
                     <div>
                         <label for="calculator-engineer-hours">Time estimated by your engineers:</label>
-                        <input id="calculator-engineer-hours" type="number" />
-                        <label id="calculator-engineer-hours-unit">days</label>
+                        <input id="calculator-engineer-hours" type="number" value="120" />
+                        <label class="calculator-unit" id="calculator-engineer-hours-unit">days</label>
                     </div>
 
                     <div>
                         <label for="calculator-contractor-hours">Time estimated by your contractors:</label>
-                        <input id="calculator-contractor-hours" type="number" />
-                        <label id="calculator-contractor-hours-unit">days</label>
+                        <input id="calculator-contractor-hours" type="number" value="40" />
+                        <label class="calculator-unit" id="calculator-contractor-hours-unit">days</label>
                     </div>
 
                     <input disabled="disabled" id="calculator-calculate" type="button" value="Calculate" />
@@ -74,33 +78,46 @@
                     <div>
                         <label for="calculator-actual-hours">Time the project will take:</label>
                         <input id="calculator-actual-hours" readonly="readonly" type="number" />
-                        <label id="calculator-actual-hours-unit">days</label>
+                        <label class="calculator-unit" id="calculator-actual-hours-unit">days</label>
                     </div>
                     
                     <div>
-                        <label for="calculator-paid-hours">Time you'll be paying the contractors for:</label>
+                        <label for="calculator-paid-hours">Time you'll end up paying the contractors for:</label>
                         <input id="calculator-paid-hours" readonly="readonly" type="number" />
-                        <label id="calculator-paid-hours-unit">days</label>
+                        <label class="calculator-unit" id="calculator-paid-hours-unit">days</label>
                     </div>
                 </div>
 
-                <p class="footnote">I take no responsibility for the actions of this calculator, or the actions of anybody who bases complex management decisions upon its results. It is solely intended as a reference implementation of something that's so damn stupid it shouldn't have to be explained in the first place.</p>
+                <p class="footnote">I take no responsibility for the actions of this calculator, or the actions of anybody who bases complex management decisions upon its results. It is solely intended as a reference implementation of something that's so obvious it shouldn't have to be explained in the first place.</p>
             </form>
 
             <p>You may have heard of The Project Management Triangle: it's often expressed as the phrase "good, cheap, fast; pick two." Guess what? When you hire contractors to build your project, you get to pick none of those things. The project won't be cheap, because contractors are, by nature, more expensive than in-house developers. The project won't be fast, because there is an insane amount of overhead in actually explaining what you want the contractors to build, as well as validating the results of the process. And, of course, the project won't be good, because contractors are trained to do just enough to meet the requirements before moving on to the next thing.</p>
             <p>I want to interrupt this line of thought to remind you of the title of this note, but I want you to pay close attention to the emphasized word.</p>
             <p class="important">Listen to <em>your</em> engineers.</p>
-            <p>Why? Because, at the end of the day, contractors are not stakeholders in your project. They are not your end users, they will not be maintaining the project long-term, and (most importantly) their employment does not find any risk if they choose to deliver a solution that's held together by duct tape and chewing gum. Their job is to pump out a project that vaguely resembles the requirements, whittle it down to something a little better when the client sends their negative feedback, and then cut bait once they've delivered.</p>
-            <p>If you don't know what the phrase "technical debt" means, go look it up now. Then, understand that bring in a contracted team to build a project in this way is the fastest way to incur technical debt known to man, short of hiring a team of high school students instead. And guess who has to deal with the technical debt that the contractors bring?</p>
+            <p>Why? Because, at the end of the day, contractors are not stakeholders in your project. They are not your end users, they will not be maintaining the project long-term, and (most importantly) their employment does not find any risk if they choose to deliver a solution that's held together by duct tape and chewing gum. Their job is to pump out a project that vaguely resembles the requirements, polish a rough edge or two when the client sends their negative feedback, and then disappear into the night once they've delivered.</p>
+            
+            <p>This may be a novel idea to some of you reading, but true engineers take <em>serious</em> pride in their work. They don't exist in the realm of employment simply to punch a clock and do the bare minimum required to receive their paycheck. The most talented and dedicated engineers spend more of their lives learning than they do sleeping, and they see work projects as opportunities to hone, expand, and showcase their skills. Their crafts, in fact, are as much art as they are science. Your engineers aren't construction workers, they're designers, composers, sculptors&mdash;and their purpose in life is to make masterpieces.</p>
+            <p>Of course, if you're of the managerial persuasion, you probably want to ask me &ldquo;who cares about art? I'm responsible for a project and my only concern is whether or not it does what it's supposed to do.&rdquo;</p>
+            <p>&hellip;</p>
+            <p>You're the kind of person that hides a hole in your pants by drawing on yourself with a marker, aren't you?</p>
+            <p>What The Management consistently fails to understand about engineers is that <a href="http://www.amazon.com/dp/0201835959" target="_blank">they're not replaceable parts</a>. They cannot be endlessly shuffled around from project to project, and tossing a bunch of extra ones into a room <strong>will not make a project go any faster</strong>. You know what they say about <a href="http://techcrunch.com/2011/03/30/9-women-cant-make-a-baby-in-a-month/" target="_blank">nine women</a> who are <a href="http://en.wiktionary.org/wiki/too_many_cooks_spoil_the_broth" target="_blank">all cooks</a>, right? Same goes for engineers. Every single one of them has their own set of experiences to draw from and their own skills to contribute. Also, every project on their plate is a work of art&mdash;functional art that serves a purpose, albeit, but art nonetheless. Your engineers want nothing more to deliver to you a project that serves above and beyond its purpose, and does so in a way that represents the skills that were put into its creation. Unfortunately, they can't do that effectively if they're subjected to the stresses caused by The Management not fundamentally understanding how engineers think and work&hellip; and nothing puts more stress on an engineer than unrealistic demands and deadlines, constant interruptions, and the fear of being replaced by a team of outsourced contractors.</p>
+            <p>Oh yeah, I was complaining about contractors, wasn't I? I should get back to that.</p>
+
+            <p>If you don't know what the phrase "technical debt" means, <a href="http://lmgtfy.com/?q=technical+debt" target="_blank">go look it up now</a>. Then, understand that bring in a contracted team to build a project in this way is the fastest way to incur technical debt known to man, short of hiring a team of high school students instead. And guess who has to deal with the technical debt that the contractors bring?</p>
             <p>First, your engineers.</p>
             <p>(And you wonder why they crack jokes about The Management, hang signs that say "to avoid injury, don't tell me how to do my job," and punch out at 4:55 PM on the dot every day.)</p>
             <p>Second, your company itself.</p>
             <p>Ever have a project that has to be rebuilt every three years because, for one reason or another, it starts failing to perform it's task? That's because of technical debt. When your engineers are falling on their knees and begging you for more support and maintenance employees, that's because of technical debt. When your engineers start fleeing the company in droves because the project to which they're assigned is "unmaintainable" and "a nightmare to work on," that is because of technical debt. But guess what: there is a way to avoid almost all potential technical debt!
             <p>You'll never guess what it is:</p>
             <p class="important">Listen to your engineers.</p>
-            <p>When they tell you how long a project is going to take, what they're really telling you is how long it'll take for the project to be built correctly. When they tell you what technologies to use for the project, what they're really telling you is which technologies make the most sense for the project, and what technologies will support it long-term. (They, unlike contracting firms, are not just listing off some technologies that they're "certified" in or get paid to push on their clients.) When an engineer tells you that they need more resources, what they're really telling you is that they give enough of a damn about your project to ask for what's necessary to complete and deliver it properly. They are your true stakeholders, because they take as much pride in truly good work as anybody else in your organization possibly could. Engineers are not cogs in a machine that should be replaced when they become squeaky; they are, when treated correctly, some of the best assets a company can have when working with technology. Their ideas could move your company into the top position in its market, or develop something completely new that nobody has though of before. But they can't do that if they're imposed with unrealistic restrictions or The Management threatens to outsource their projects to contractors.</p>
+            <p>When they tell you how long a project is going to take, what they're really telling you is how long it'll take for the project to be built correctly. When they tell you what technologies to use for the project, what they're really telling you is which technologies make the most sense for the project, and what technologies will support it long-term. (They, unlike contracting firms, are not just listing off some technologies that they're "certified" in or get paid to push on their clients.) When an engineer tells you that they need more resources, what they're really telling you is that they give enough of a damn about your project to ask for what's necessary to complete and deliver it properly. They are your true stakeholders, because they take as much pride in truly good work as anybody else in your organization possibly could. <a href="http://www.amazon.com/dp/0932633439" target="_blank">Engineers are not cogs in a machine</a> that should be replaced when they become squeaky; they are, when treated correctly, some of the best assets a company can have when working with technology. Their ideas could move your company into the top position in its market, or develop something completely new that nobody has though of before. But they can't do that if they're imposed with unrealistic restrictions or The Management threatens to outsource their projects to contractors.</p>
             <p>Remember that the next time you hear some suit and tie telling an engineer that something "shouldn't be that hard."</p>
         </article>
+        <hr />
+        <footer>
+            <p>This rant was written in full by an engineer named Adam Maras.</p>
+            <p>It's been starred once or twice <a href="https://github.com/AdamMaras/listentoyourengineers.com" target="_blank">on GitHub</a>.</p>
+            <p>You can share it, but only if you follow <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">some rules</a>.</p>
+        </footer>
     </body>
-    <!-- Copyright 2014 Adam Maras -->
 </html>

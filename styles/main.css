@@ -6,7 +6,7 @@ html {
 }
 
 html body {
-    margin: 0;
+    margin: 0 1em 4em 1em;
     padding: 0;
 }
 
@@ -22,6 +22,10 @@ form, h1, hr, ol, p {
 
 a, a:visited {
     color: #44c;
+}
+
+form#calculator {
+    display: none;
 }
 
 form#calculator div#calculator-controls {
@@ -94,3 +98,14 @@ ol {
 li {
     margin: 1em auto;
 }
+
+footer {
+    color: #7f7f7f;
+}
+
+    footer p {
+        margin-bottom: 0;
+        margin-top: 0;
+        text-align: center;
+        text-indent: 0;
+    }
